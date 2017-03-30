@@ -8,7 +8,7 @@ public class BubbleSort {
 
     private int size;
     private int[] array;
-    private int range;
+    private int enumeration;
     private int time;
 
     public BubbleSort(int size) {
@@ -18,11 +18,19 @@ public class BubbleSort {
     public BubbleSort(int size, int range, int enumeration) {
         this.size = size;
         createArray(size, range);
-        time = getTime(enumeration);
+        this.enumeration = enumeration;
     }
     public BubbleSort()
     {
 
+    }
+
+    public int getEnumeration() {
+        return enumeration;
+    }
+
+    public void setEnumeration(int enumeration) {
+        this.enumeration = enumeration;
     }
 
     public int[] getArray() {
@@ -99,28 +107,10 @@ public class BubbleSort {
         }
         long stopTime = System.currentTimeMillis();
         int running_time = (int)(stopTime - startTime);
+        this.time = running_time;
         return running_time;
     }
 
-
-    public int[][] autoEnum()
-    {
-        Enum enumeration = new Enum();
-        int[] size = enumeration.getSize();
-        int[] range = enumeration.getRange();
-        int[] times = enumeration.getTimes();
-        int[][] timesReturned = new int[3][3];
-        for (int i = 0; i < size.length; i++) {
-            createArray(size[i], range[i]);
-            System.out.println(range[i]);
-            for (int j = 0; j < times.length; j++) {
-                timesReturned[i][j] = getTime(times[j]);
-                System.out.println(size[i] + " " +  times[j] + " " + timesReturned[i][j]);
-            }
-        }
-        System.out.println();
-        return timesReturned;
-    }
 
     public void printArray()
     {

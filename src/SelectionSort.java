@@ -6,9 +6,14 @@ import java.util.Random;
 public class SelectionSort {
 
     private int[] array;
+    private int size;
+    private int enumeration;
+    private int time;
 
-    public SelectionSort(int size, int range) {
+    public SelectionSort(int size, int range, int enumeration) {
+        this.size = size;
         createArray(size, range);
+        this.enumeration = enumeration;
     }
 
     public void createArray(int size, int range)
@@ -21,20 +26,36 @@ public class SelectionSort {
         }
     }
 
-    public int[] selectionSort(int[] array){
+    public int[] selectionSort(int[] array1){
 
-        for (int i = 0; i < array.length - 1; i++)
+        for (int i = 0; i < array1.length - 1; i++)
         {
             int index = i;
-            for (int j = i + 1; j < array.length; j++)
-                if (array[j] < array[index])
+            for (int j = i + 1; j < array1.length; j++)
+                if (array1[j] < array1[index])
                     index = j;
 
-            int smallerNumber = array[index];
-            array[index] = array[i];
-            array[i] = smallerNumber;
+            int smallerNumber = array1[index];
+            array1[index] = array1[i];
+            array1[i] = smallerNumber;
         }
-        return array;
+        return array1;
+    }
+
+    public int[] selectionSort(){
+
+        for (int i = 0; i < this.array.length - 1; i++)
+        {
+            int index = i;
+            for (int j = i + 1; j < this.array.length; j++)
+                if (this.array[j] < this.array[index])
+                    index = j;
+
+            int smallerNumber = this.array[index];
+            this.array[index] = this.array[i];
+            this.array[i] = smallerNumber;
+        }
+        return this.array;
     }
 
     public int getTime(int enumeration)
@@ -42,7 +63,7 @@ public class SelectionSort {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < enumeration; i++)
         {
-            //selectionSort();
+            selectionSort();
         }
         long stopTime = System.currentTimeMillis();
         int running_time = (int)(stopTime - startTime);
@@ -58,7 +79,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        SelectionSort selectionSort = new SelectionSort(50, 100);
+        SelectionSort selectionSort = new SelectionSort(50, 100, 100);
         selectionSort.selectionSort(selectionSort.getArray());
         int count = 0;
         for (int i = 0; i < selectionSort.getArray().length; i++) {
