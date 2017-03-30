@@ -16,6 +16,14 @@ public class SelectionSort {
         this.enumeration = enumeration;
     }
 
+    public int getEnumeration() {
+        return enumeration;
+    }
+
+    public void setEnumeration(int enumeration) {
+        this.enumeration = enumeration;
+    }
+
     public void createArray(int size, int range)
     {
         Random random = new Random();
