@@ -42,7 +42,7 @@ public class SelectionSort {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < enumeration; i++)
         {
-            selectionSort();
+            //selectionSort();
         }
         long stopTime = System.currentTimeMillis();
         int running_time = (int)(stopTime - startTime);

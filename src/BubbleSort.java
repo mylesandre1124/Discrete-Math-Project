@@ -9,19 +9,28 @@ public class BubbleSort {
     private int size;
     private int[] array;
     private int range;
-    private AutoArray autoArray;
+    private int time;
 
     public BubbleSort(int size) {
         this.size = size;
     }
 
-    public BubbleSort(int size, int range) {
+    public BubbleSort(int size, int range, int enumeration) {
         this.size = size;
         createArray(size, range);
+        time = getTime(enumeration);
     }
     public BubbleSort()
     {
 
+    }
+
+    public int[] getArray() {
+        return array;
+    }
+
+    public void setArray(int[] array) {
+        this.array = array;
     }
 
     public void createArray(int size, int range)
@@ -113,41 +122,19 @@ public class BubbleSort {
         return timesReturned;
     }
 
-    public void printEnum(AutoArray autoArray)
+    public void printArray()
     {
-        int[][] times = autoArray.getTimes();
-        for (int i = 0; i < times.length; i++) {
-            for (int j = 0; j < times[i].length; j++) {
-                System.out.print(times[i][j] + "\t");
-            }
-            System.out.println();
+        int[] array = getArray();
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
         }
     }
 
-    public double[] avgArrays(int[][] array)
-    {
-        double[] avgArray = new double[3];
-        for (int i = 0; i < 3; i++) {
-            double total = 0;
-            for (int j = 0; j < 3; j++) {
-                total += array[i][j];
-            }
-            avgArray[i] = total / 3.0;
-        }
-        return avgArray;
-    }
 
-    public AutoArray createAutoArray()
-    {
-        AutoArray autoArray = new AutoArray();
-        autoArray.setTimes(autoEnum());
-        autoArray.setAvg(avgArrays(autoArray.getTimes()));
-        return autoArray;
-    }
 
     public static void main(String[] args) {
-        BubbleSort bubbleSort = new BubbleSort();
-        AutoArray autoArray = bubbleSort.createAutoArray();
+        //BubbleSort bubbleSort = new BubbleSort();
+        //AutoArray autoArray = bubbleSort.createAutoArray();
         //bubbleSort.printEnum(autoArray.getTimes());
     }
 }
