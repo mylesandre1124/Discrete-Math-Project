@@ -86,6 +86,15 @@ public class SelectionSort {
         this.array = array;
     }
 
+    public void printArray()
+    {
+        int[] array = getArray();
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+
+
     public static void main(String[] args) {
         SelectionSort selectionSort = new SelectionSort(50, 100, 100);
         selectionSort.selectionSort(selectionSort.getArray());
