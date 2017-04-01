@@ -11,7 +11,7 @@ public class RunSort {
         Scanner input = new Scanner(System.in);
         int size = 0;
         int enumeration = 0;
-        System.out.println("Enter 0 to choose bubble sort or 1 to choose selection sort");
+        System.out.println("Enter 0 to choose bubble sort or 1 to choose selection sort:");
         int sort = input.nextInt();
         if(sort == 0) {
             BubbleSort bubbleSort;
